@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
+// import { toggleEdit, setTitle } from '../actions';
 
 const Header = props => {
   return (
@@ -12,4 +15,13 @@ const Header = props => {
   );
 };
 
-export default Header;
+const mapStateToProps = state => {
+  // the keys of the returned obj will be props passed into the comp
+  return {
+    car: state.app.car,
+  };
+};
+
+// export default Header;
+export default connect(mapStateToProps)(Header);
+
